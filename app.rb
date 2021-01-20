@@ -1,8 +1,8 @@
 require 'sinatra'
 
-Sinatra::Application.config_file File.join(File.dirname(__FILE__),
-                                           'config',
-                                           "#{Sinatra::Application.settings.environment}_config.yml")
+# Sinatra::Application.config_file File.join(File.dirname(__FILE__),
+#                                            'config',
+#                                            "#{Sinatra::Application.settings.environment}_config.yml")
 
 class EmployeeDirectoryApp < Sinatra::Application
   configure do
