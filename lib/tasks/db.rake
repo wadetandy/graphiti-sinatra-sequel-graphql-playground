@@ -2,9 +2,7 @@ namespace :db do
   require "sequel"
   Sequel.extension :migration
 
-  def DB
-    @db ||= Sequel.connect(ENV['DATABASE_URL'])
-  end
+  DB = Sequel.connect(ENV['DATABASE_URL'])
 
   desc "Prints current schema version"
   task :version do
@@ -21,7 +19,7 @@ namespace :db do
     Rake::Task['db:version'].execute
   end
 
-  desc "Perform rollback to specified target or full rollback as default"
+  desc "Perform rollback to specified target or previous version as default"
   task :rollback, :target do |t, args|
     version = if DB.tables.include?(:schema_info)
       DB[:schema_info].first[:version]
