@@ -1,4 +1,3 @@
-require 'dotenv/load'
+require_relative './config/boot'
 
-require_relative './app'
 run EmployeeDirectoryApp
